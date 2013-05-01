@@ -1,0 +1,8 @@
+.winner{ color: green;}
+.sliding .X{ height: 49px; width: 49px; border-radius: 30px; background: green; color: transparent; }
+.sliding .O{ height: 49px; width: 49px; border-radius: 30px; background: red; color: transparent;}
+.standard .X{ color: green; }
+.standard .O{ color: red; }
+table.board { margin: 0px auto; font-size: 40px;}
+table.board { border-collapse: collapse; }
+table.board tr td { border: solid 2px #777; height: 50px; width: 50px; text-align: center;}

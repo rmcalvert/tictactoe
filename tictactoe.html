@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="vendor/jquery-1.9.1.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/angular.js"></script>
+    <script src="tictac.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" href="tictactoe.css">
+    <script src="http://127.0.0.1:35729/livereload.js?snipver=1"></script>
+  </head>
+  <body data-ng-app>
+    <div class="container">
+      <h1>Tic Tac Toe</h1>
+      <div data-ng-controller="GameCtrl">
+        <a href="#" data-ng-click="toggleGame()">Toggle Game</a>
+        <br>
+        <div class="row-fluid">
+          <div class="span3">
+            <div data-ng-class="winnerClass('X')">
+              <h3>{{player1Name}}</h3>
+              <a href="#" data-ng-click="toggleControl(1)">Toggle Control ({{player1Control}})</a>
+              <img src="images/ned.jpg" alt="" />
+              <br>
+              <br>
+              <input type="text" data-ng-model="player1Name" />
+            </div>
+          </div>
+          <div class="span6" style="text-align: center;">
+            <table class="board" data-ng-class="boardClass()">
+              <tr data-ng-repeat="row in game.board">
+                <td data-ng-repeat="cell in row" data-ng-click="game.place($index, $parent.$index)">
+                  <div data-ng-class="cell">
+                    {{cell}}
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <button class="btn" data-ng-click="reset()">Reset</button>
+            <div style="color: green;">
+              <h3>{{winningMessage()}}</h3>
+            </div>
+          </div>
+          <div class="span3">
+            <div data-ng-class="winnerClass('O')">
+              <h3>{{player2Name}}</h3>
+              <a href="#" data-ng-click="toggleControl(2)">Toggle Control ({{player2Control}})</a>
+              <img src="images/jof.jpg" alt="" />
+              <br>
+              <br>
+              <input type="text" data-ng-model="player2Name" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
